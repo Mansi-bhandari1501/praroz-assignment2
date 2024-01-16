@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <h1 class="logo-name">PraRoz</h1>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">ABOUT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Service.html">SERVICE</a></li>
+                    <li class="nav-item"><a class="nav-link" href="design.html">DESIGN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <div class="search-bar">
+                <input class="search" type="search" name="" placeholder="Type to Search">
+                <button class="btn">Search</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="about">
+                <h1>Web Design & <br><span>Development</span> <br>Course</h1>
+                <p class="para">Web Design is a specialisation of the design stream. They also use HTML, CSS,WYSIWYG
+                    editing software, mark up validators etc., <br>to create design elements.</p>
+
+                <button class="join-btn">JOIN US</button>
+            </div>
+            <form action="" method="get" onsubmit="myfunc(event)">
+                <div form class="login-form">
+                    <h2>Login Here</h2>
+                    <input type="email" name="email" id="email" placeholder="Enter email">
+                    <input type="password" name="password" id="psw" placeholder="Enter password">
+                    <button type="submit" class="login-btn">Login</button>
+                    <p class="signup">Don't have an account <br>
+                        <a href="#" style="color: #ff7200;">Sign up </a> here
+                    </p>
+                    <p class="LIn">Log in with</p>
+                    <div class="icons">
+                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script>
+        function myfunc(event) {
+            event.preventDefault();
+            let mailid = document.getElementById("email").value;
+            let passid = document.getElementById("psw").value;
+            const mydata = {
+                email: mailid,
+                password: passid
+            };
+            savemydata(mydata);
+        }
+        function savemydata(mydata) {
+            const storedata = JSON.parse(localStorage.getItem('mydata')) || [];
+            storedata.push(mydata);
+            localStorage.setItem('mydata', JSON.stringify(storedata));
+        }
+    </script>
+
+
+</body>
+
+</html>
